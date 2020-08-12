@@ -1,12 +1,13 @@
+---
 kind: Service
 apiVersion: v1
 metadata:
-  name:  example-service
+  name: example-service
 spec:
   selector:
-    app:  example-deployment
-  type:  ClusterIP
+    app: example-deployment
+  type: ClusterIP
   ports:
-  - name:  port-of-nginx
-    port:  80
-    targetPort:  8080
+    - name: port-of-nginx
+      port: 80
+      targetPort: 8080
