@@ -4,13 +4,13 @@ orbs:
   python: circleci/python@0.2.1
 
 jobs:
-  setup-deps:
+  setup-deps-and-run-test:
     executor: python/default
     steps:
       - checkout
       - run:
-          command: sudo pip install yamllint
-          name: install yaml validator
+          command: sudo pip install yamllint && yamllint .
+          name: install yaml validator & run test
   run-test:
     executor: python/default
     steps:
@@ -23,4 +23,3 @@ workflows:
   main:
     jobs:
       - setup-deps
-      - run-test
