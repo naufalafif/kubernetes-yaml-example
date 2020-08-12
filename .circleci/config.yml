@@ -15,7 +15,7 @@ jobs:
     steps:
       - checkout
       - run:
-          command: yamllint . 
+          command: yamllint .
           name: check yaml structure
 workflows:
   main:
