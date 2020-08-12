@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: replicaset-example
+  labels:
+    app: replicaset-example
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: example-pod
+  template:
+    metadata:
+      name: example-pod
+      labels:
+        app: example-pod
+    spec:
+      containers:
+        - name: example-con
+          image: nginx
