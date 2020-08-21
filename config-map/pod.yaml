@@ -1,0 +1,21 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-example
+  labels:
+    name: pod-example
+spec:
+  containers:
+    - name: con-example
+      image: busybox
+      command:
+        - /bin/ash
+        - -c
+        - "printenv AUTHOR && sleep 10000"
+      env:
+        - name: AUTHOR
+          valueFrom:
+            configMapKeyRef:
+              name: config-map-example
+              key: author

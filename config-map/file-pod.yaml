@@ -1,0 +1,22 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-example-file
+  labels:
+    name: pod-example-file
+spec:
+  containers:
+    - name: con-example-file
+      image: busybox
+      command:
+        - /bin/ash
+        - -c
+        - "cat /home/user.conf && sleep 10000"
+      volumeMounts:
+        - mountPath: /home
+          name: config-vol
+  volumes:
+    - name: config-vol
+      configMap:
+        name: config-map-file-example
